@@ -1,0 +1,1092 @@
+$font-primary: 'Montserrat', Arial, sans-serif;
+$font-secondary: 'Raleway', Arial, sans-serif;
+
+
+// Overrides
+$grid-gutter-width: 40px !default; 
+$border-radius-base:  4px !default;
+$padding-base-vertical: 14px !default;
+
+$brand-primary: #276374 !default;
+$brand-secondary: #35a8b9 !default; 
+$brand-tertiary: #000 !default; 
+
+
+$color-white: #fff;
+$color-black: #000;
+$color-blue1: #276374;
+$color-blue2: #35a8b9;
+$color-dkgray: #414141;
+$color-ltgray: #a0a0a0;
+$dkblue: rgb(39, 99, 116);
+
+/* Color palette */
+
+$black: rgb(0, 0, 0);
+$dkblue: rgb(39, 99, 116);
+$ltblue: rgb(53, 168, 185);
+
+$white-two: rgb(225, 225, 225);
+$white: rgb(255, 255, 255);
+$dark-gray: rgb(56, 56, 56);
+$warm-grey: rgb(129, 128, 128);
+
+$ltgray: rgb(216, 216, 216);
+
+
+
+$input-border-focus:  $brand-primary !default;
+$form-group-margin-bottom:       30px !default;
+
+
+
+// Mixin
+@mixin zarin-translate($translatex) {
+	-moz-transform: translateX($translatex);
+	-webkit-transform: translateX($translatex);
+	-ms-transform: translateX($translatex);
+	-o-transform: translateX($translatex);
+	transform: translateX($translatex);
+}
+@mixin transition($transition) {
+    -moz-transition:    $transition ease;
+    -o-transition:      $transition ease;
+    -webkit-transition: $transition ease;
+    -ms-transition: 		$transition ease;
+    transition:         $transition ease;
+}
+@mixin inline-block() {
+	display:-moz-inline-stack;
+	display:inline-block;
+	zoom:1;
+	*display: inline;
+}
+@mixin flex() {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flexbox;
+	display: flex;
+}
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+@mixin flex() {
+	display: -webkit-box;      
+  	display: -moz-box;         
+  	display: -ms-flexbox;      
+  	display: -webkit-flex;     
+  	display: flex;             
+}
+@mixin flexwrap() {
+	flex-wrap: wrap;
+	-webkit-flex-wrap: wrap; 
+	-moz-flex-wrap: wrap; 
+}
+
+@font-face {
+	font-family: 'icomoon';
+	src:url('../fonts/icomoon/icomoon.eot?srf3rx');
+	src:url('../fonts/icomoon/icomoon.eot?srf3rx#iefix') format('embedded-opentype'),
+		url('../fonts/icomoon/icomoon.ttf?srf3rx') format('truetype'),
+		url('../fonts/icomoon/icomoon.woff?srf3rx') format('woff'),
+		url('../fonts/icomoon/icomoon.svg?srf3rx#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@mixin icomoon() {
+	
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	
+}
+
+// Import 
+@import 'bootstrap/mixins';
+@import 'bootstrap/variables';
+
+// Template Base
+
+
+body {
+	font-family: $font-secondary;
+	// font-weight: 300;
+	font-size: 18px;
+	line-height: 22px;
+	font-weight: 300;
+	color: $brand-tertiary;
+	
+	height: 100%;
+	position: relative;
+	&.zarin-overflow {
+		overflow-x: auto;
+	}
+}
+a {
+	color: $color-black;
+	@include transition(.5s);
+	&:hover, &:active, &:focus {
+		color: $brand-primary;
+		outline: none;
+		text-decoration: none;
+	}
+}
+p, figure {
+	margin-bottom: 1.5em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color: $brand-primary;
+	font-family: $font-primary;
+	font-weight: 400;
+	margin: 0 0 30px 0;
+	text-transform: uppercase;
+}
+::-webkit-selection {
+  color: $color-black;
+  background: $color-ltgray;
+}
+
+::-moz-selection {
+  color: $color-black;
+  background: $color-ltgray;
+}
+
+::selection {
+  color: $color-black;
+  background: $color-ltgray;
+}
+
+// Buttons
+.btn {
+	margin-right: 4px;
+	margin-bottom: 4px;
+	margin-right: 15px;
+	font-family: $font-primary;
+	font-size: 16px;
+	font-weight: 400;
+	@include border-radius(4px);
+	@include transition(.5s);
+	&.btn-md {
+		padding: 10px 20px!important;
+	}
+	&.btn-lg {
+		padding: 18px 36px!important;
+	}
+	&:hover, &:active, &:focus {
+		box-shadow: none!important;
+		outline: none!important;
+	}
+}
+.btn-primary {
+	background: $brand-primary;
+	margin-right: 15px;
+	border: none;
+	color: $color-white;
+	text-transform: uppercase;
+	&:hover, &:focus, &:active {
+		background: lighten($brand-primary, 5%)!important;
+	}
+}
+
+.zarin-phone {
+float: right;
+	display: block;
+	margin-top: -15px;
+	background-color: $color-blue2;
+	margin-right: 15px;
+}
+
+.btn-phone {
+	background: $color-blue2;
+	color: $color-white;
+	margin-bottom: 10px;
+	border-radius: 8px;
+	border: none;
+	margin-right: 15px;
+
+	&:hover, &:focus, &:active {
+		background: lighten($brand-primary, 5%)!important;
+		border-color: lighten($brand-primary, 5%)!important;
+	}
+	
+
+
+}
+
+
+// Form Input Field
+.form-control {
+	box-shadow: none;
+	background: transparent;
+	border: 2px solid rgba(0, 0, 0, 0.1);
+	height: 54px;
+	font-size: 18px;
+	font-weight: 300;
+  	&:active, &:focus {
+  		outline: none;
+		box-shadow: none;
+		border-color: $brand-primary;
+  }
+}
+
+
+
+.jumbotron {
+	background-color: $white;
+	margin-top: -10px;
+	background-image: url('../../../images/hdr-img-rtext-a.png');
+	background-size: cover;
+	background-position: left;
+	background-repeat: no-repeat;
+	position: relative;
+	height: 600px;
+
+	@media screen and (max-width: $screen-xs) {
+		height: 450px;
+		position: center;
+	}
+	
+}
+
+
+
+
+.navbar {
+	background: transparent !important; 
+	z-index: 999;
+	border: none !important;
+	color: $color-black;
+	text-transform: uppercase;
+	margin-top: 12px;
+	li {
+		display: inline;
+		font: $font-primary;
+		font-size: 20px;
+		font-weight:400;
+		color: $black;
+		text-align: right;
+	}
+	a {
+		color: $black !important;
+		font-family: $font-primary;
+		text-align: right;
+
+	}
+ 
+}
+.navbar-brand {
+	margin-left: 15px!important;
+	margin-top: -30px!important;
+	height: 100px;
+	
+	ul {
+	padding: 0;
+	margin: 0;
+	z-index: 2;
+	position: relative;
+	@media screen and (max-width: $screen-sm) {
+		display: none;
+		}
+	}
+}
+
+.hero-text-rt {
+	position: relative;
+	z-index: 50;
+	text-align: right;
+	padding-right: 15px;
+	padding-top: 40px;
+
+	h1 {
+		font-family: $font-primary;
+		font-size: 40px;
+		font-weight: 300;
+		text-align: right;
+		color: $dkblue;
+		padding-top: 15px;	
+	}
+	p {
+		font-size: 22px;
+		color: $dark-gray;
+		text-align: right !important;
+		margin-bottom: 30px;
+		line-height: 1.5em;
+
+	}
+	@media screen and (max-width: $screen-xs) {
+		display: none;	}
+
+}
+
+
+.zarin-logo {
+	text-align: left;
+	display: block;
+	background: transparent;
+	z-index: 1;
+		a {
+			font-size: 30px;
+			font-weight: 500;
+			color: rgba(255,255,255,1);
+			span {
+				color: $color-black;
+			}
+		}
+		@media screen and (max-width: $screen-xs) {
+		height: 450px;
+
+	}
+}
+
+
+
+/* #zarin-hero {
+
+	background-color: transparent;
+	background-size: cover;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	position: relative;
+	width: 100%;
+	height: 750px !important;
+	@media screen and (max-width: $screen-xs) {
+		height: 450px;
+	}
+   
+	.zarin-intro {
+		display: table;
+		width: 100%;
+		z-index: 15;
+		position: relative;
+		@media screen and (max-width: $screen-xs) {
+			height: 450px;
+		}
+		> div {
+			vertical-align: middle;
+			display: table-cell;
+			.zarin-left-position {
+				width: 65%;
+				float: left;
+				@media screen and (max-width: $screen-md) {
+					width: 100%;
+				}
+			}
+			.zarin-center-position {
+				width: 65%;
+				text-align: center;
+				margin: 0 auto;
+				@media screen and (max-width: $screen-md) {
+					width: 100%;
+					text-align: center;
+				}
+			}
+			.zarin-right-position {
+				width: 65%;
+				float: right;
+				text-align: right;
+				@media screen and (max-width: $screen-md) {
+					width: 100%;
+					text-align: left;
+				}
+			}
+			h2 {
+				font-size: 70px;
+				line-height: 87px;
+				font-weight: 100;
+				color: $color-blue1;
+				@media screen and (max-width: $screen-md) {
+					font-size: 40px;
+					line-height: 57px;
+					text-align: center;
+				}
+			}
+			h3 {
+				font-weight: 100;
+				font-size: 30px;
+				line-height: 45px;
+				color: rgba(255,255,255,1);
+				@media screen and (max-width: $screen-md) {
+					font-size: 24px;
+					line-height: 37px;
+					text-align: center;
+				}
+			}
+			.btn-outline, .btn-primary {
+				padding: 20px 30px!important;
+				min-width: 200px;
+				font-size: 18px;
+				margin-top: 15px;
+				@media screen and (max-width: $screen-xs) {
+					padding: 10px 30px!important;
+					width: 100%;
+				}
+			}
+			.btn-outline {
+				border-color: rgba(255,255,255,.2);
+				color: rgba(255,255,255,1);
+				background-color: rgba(255,255,255,.1);
+				&:hover {
+					border-color: rgba(255,255,255,.4);
+					color: rgba(255,255,255,1);
+					background-color: rgba(255,255,255,.2);
+				}
+			}
+		}
+	}
+	.zarin-learn-more {
+		position: absolute;
+		bottom: -25px;
+		left: 50%;
+		z-index: 12;
+		text-align: center;
+		a {
+			display: block;
+			.text {
+				display: block;
+				color: rgba(255,255,255,.5);
+				margin-bottom: 20px;
+			}
+			.arrow {
+				display: block;
+				width: 50px;
+				height: 50px;
+				margin: 0 auto;
+				background: $brand-primary;
+				@include border-radius(50%);
+				i {
+					top: 10px;
+					position: relative;
+					color: $color-white;
+					vertical-align: middle;
+				}
+			}
+		}
+	}
+} */
+.no-js-fullheight {
+	height: 620px;
+	@media screen and (max-width: $screen-sm) {
+		height: inherit;
+		padding: 3em 0;
+	}
+}
+.zarin-lead {
+	font-size: 50px;
+	font-weight: 300;
+	color: $brand-secondary;
+	margin-bottom: 10px;
+	@media screen and (max-width: $screen-sm) {
+		font-size: 35px;
+	}
+}
+.zarin-sub-lead {
+	font-size: 18px;
+	line-height: 32px;
+	font-weight:300;
+}
+
+#zarin-about-content {
+	background: #fff;
+	.zarin-lead {
+		font-size: 30px;
+		font-weight: 300;
+		color: $color-blue1;
+		margin-bottom: 0px;
+		@media screen and (max-width: $screen-sm) {
+			font-size: 35px;
+		}
+	}
+	.about-thmb {
+		background: $color-blue1;
+		margin-right: 10px;
+		margin-top: 10px;
+		position: relative;
+		background-repeat: no-repeat;
+	background-position: center;
+	border-radius: 10px;
+	}
+
+	.zarin-sub-lead {
+		font-size: 18px;
+		line-height: 26px;
+		font-weight:300;
+	}
+	
+}
+
+
+
+#zarin-info,
+#zarin-family-law,
+#zarin-contact
+ {
+	background-color: $color-white;
+	padding: 3em 0;
+	@media screen and (max-width: $screen-sm) {
+		padding: 3em 0;
+	}
+}
+
+
+#zarin-testimonials {
+	background-image: url('../../../images/z-testimonials-bg.png');
+	background-color: $color-white;
+	background-repeat: no-repeat;
+	background-position: top;
+	background-size: cover;
+
+	.zarin-lead {
+		font-size: 30px;
+		font-weight: 300;
+		color: $color-white;
+		margin-bottom: 5px;
+		@media screen and (max-width: $screen-sm) {
+			font-size: 25px;
+		}
+	}
+	.flexslider {
+		background: rgba(white, 0.8);
+		border: none;
+		@include border-radius(8px);
+	}
+
+	.testimonial-photo {
+		float: left;
+		width: 150px;
+		height: auto;
+		float: right;
+		@include border-radius(5px);
+		background-color: $color-blue2;
+		}
+	
+	.slides {
+		z-index: 99;
+		li {
+		list-style: none;
+			blockquote {
+				border-left: none;
+				padding-left: 20px;
+				font-size: 18px;
+				line-height: 26px;
+				margin-bottom: 0;
+			}
+
+			p {
+				cite {
+					font-size: 16px;
+				}
+			}
+		}
+	}
+	.flexslider-controls {
+		margin-left: -15px;
+		z-index: 100;
+		position: relative;
+
+		.flex-control-nav {
+			padding-bottom: 30px;
+			@media screen and (max-width :$screen-sm) {
+				padding-bottom: 30px;
+			}
+			li {
+				cursor: pointer;
+				list-style: none;
+				img {
+					cursor: pointer;
+					width: 50px;
+					opacity: .3;
+					@include transition(.5s);
+					@include border-radius(50%);
+				}
+				&.flex-active {
+					img {
+						opacity: 1;
+					}
+				}
+				&:hover {
+					img {
+						opacity: 1;
+					}
+				}
+			}
+		}
+	}
+}
+
+#zarin-family-law {
+	background: #fff;
+	
+	h2 {
+		font-size: 30px;
+		font-weight: 300;
+		color: $color-blue1;
+		margin-bottom: 10px;
+		@media screen and (max-width: $screen-sm) {
+			font-size: 35px;
+		}
+	}
+	img {margin-right: 25px;
+	}
+	p {
+		font-size: 18px;
+		
+		font-weight:300;
+
+	}
+	.zarin-info-item {
+		display: block;
+		width: 100%;
+		position: relative;
+		// top: 0;
+		background: $color-white;
+		overflow: hidden;
+		z-index: 9;
+		
+		margin-bottom: 30px;
+		-webkit-box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.1);
+		-moz-box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.1);
+		-ms-box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.1);
+		-o-box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.1);
+		box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.1);
+		@include border-radius(7px);
+		@include transition(.3s);
+		
+		img {
+			z-index: 8;
+			opacity: 1;
+			@include transition(.3s);
+		}
+		.zarin-text {
+			padding: 30px 10px 10px 20px;
+			text-align: center;
+			h2, span {
+				text-decoration: none!important;
+			}
+			h2 {
+				font-size: 18px;
+				font-weight: bold;
+				margin: 0 0 10px 0;
+				color: $brand-secondary;
+			}
+			span {
+				color: lighten($color-black, 70%);
+				font-size: 16px;
+				font-weight: 400;
+			}
+			p {
+				color: $brand-tertiary;
+				@include transition(.5s);
+			}
+		}
+		&:hover, &:focus {
+			-webkit-box-shadow: 0px 3px 20px 0px rgba(0, 0, 0, 0.1);
+			-moz-box-shadow: 0px 3px 20px 0px rgba(0, 0, 0, 0.1);
+			-ms-box-shadow: 0px 3px 20px 0px rgba(0, 0, 0, 0.1);
+			-o-box-shadow: 0px 3px 20px 0px rgba(0, 0, 0, 0.1);
+			box-shadow: 0px 3px 20px 0px rgba(0, 0, 0, 0.1);
+			text-decoration: none;
+			// top: -10px;
+			img {
+				opacity: .7;
+			}
+			h2, span {
+				text-decoration: none!important;
+			}
+			p {
+				color: $brand-secondary;
+			}
+		}
+	}
+}
+
+.zarin-lead {
+	font-size: 30px;
+	font-weight: 300;
+	color: $color-blue1;
+	margin-top: 40px;
+	margin-bottom: 10px;
+	@media screen and (max-width: $screen-sm) {
+		font-size: 20px;
+	}
+}
+.zarin-sub-lead {
+	font-size: 18px;
+	line-height: 32px;
+	font-weight: 300;
+}
+
+#zarin-contact {
+	background-image: url('../../../images/zarin-contact-bg.png');
+	background-repeat: no-repeat;
+	background-position: top;
+	background-size: cover;
+	padding: 3em 0;
+
+  	width: 100%;
+  	margin: 0 auto;
+  	position: relative;
+  	left: 0px;
+
+#contact input[type="text"],
+#contact input[type="email"],
+#contact input[type="tel"],
+#contact input[type="url"],
+#contact textarea,
+#contact button[type="submit"] {
+  font: 400 12px/16px "Montserrat", Helvetica, Arial, sans-serif;
+text-transform: uppercase;
+}	
+	p {
+		font-size: 16px;
+	}
+	h2 {
+		font-size: 30px;
+		font-weight: 300;
+		color: $color-blue1;
+		margin-bottom: 10px;
+		@media screen and (max-width: $screen-sm) {
+		font-size: 20px;
+	}
+		float: left;
+		width: 100%;
+		margin-bottom: 15px;
+		position: relative;
+		label {
+			font-weight: 300;
+		}
+		@media screen and (max-width: $screen-md) {
+			width: 100%;
+			margin-bottom: 30px;
+		}
+	}
+	form {
+		width: 100%;
+		float: left;
+		position: relative;
+		@media screen and (max-width: $screen-md) {
+			width: 100%;
+		}
+		.zarin-icon {
+			position: absolute;
+			top: 50%;
+			margin-top: -10px;
+			left: 15px;
+			font-size: 20px;
+			@media screen and (max-width: $screen-xs) {
+				position: absolute;	
+				top: 26px;	
+			}
+		}
+		
+		input[type="submit"] {
+			position: inherit;
+			right: 0;
+			top: 0;
+			margin-right: -4px;
+			height: 54px;
+			border-top-left-radius: 0;
+			border-bottom-left-radius: 0;
+			font-size: 20px;
+			font-weight: 300;
+			width: 160px;
+			float: left;
+			@media screen and (max-width: $screen-xs) {
+				position: relative;		
+				width: 100%;
+				border-top-left-radius: 4px;
+				border-bottom-left-radius: 4px;
+			}
+		}
+	}
+}
+
+.blog {
+		margin-top: 35px;
+	p{
+		line-height:1.2em;
+	}
+	h2 { 
+	font-size: 30px;
+	font-weight: 300;
+	color: $color-blue1;
+	margin-top: 40px;
+	margin-bottom: 10px;
+	@media screen and (max-width: $screen-sm) {
+		font-size: 20px;
+	}
+		margin-top: 15px;
+		float: left;
+		width: 100%;
+		position: relative;
+		
+	}
+	.title {
+	font-family: Montserrat;
+	font-size: 20px;
+	font-weight: 600;
+	line-height: 1.55;
+	color: rgb(44, 44, 44);
+
+	}
+
+	a {
+	font-family: Montserrat;
+	font-size: 14px;
+	font-weight: bold;
+	color: $dkblue;
+	text-transform: uppercase;
+	float: right;
+	}
+	
+
+}
+
+.outcomes {
+	h2 { 
+	font-size: 30px;
+	font-weight: 300;
+	color: $color-blue1;
+	margin-top: 40px;
+	margin-bottom: 10px;
+	@media screen and (max-width: $screen-sm) {
+		font-size: 20px;
+	}
+		margin-top: 15px;
+		float: left;
+		width: 100%;
+		position: relative;
+		
+	}
+	li {
+		clear: left;
+
+	}
+
+}
+.yrs-exp {
+	margin-top: 55px;
+	display: block;
+	background-color:$color-blue1;
+	height: 80px;
+		h2 {
+		color: $color-white;
+		text-align: center;
+		vertical-align: middle;
+		font-size: 30px;
+    	font-weight: 300;
+    	padding-top: 25px;
+
+		}
+}
+
+#zarin-footer {
+	padding-bottom: 0;
+	background-color: $color-black;
+	padding-top: 50px;
+	color: $color-ltgray;
+	font-family: 'Montserrat', sans-serif;
+
+	a {
+		color: $color-white;
+		margin: 10px 0;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+	.zarin-footer-widget {
+		@media screen and (max-width: $screen-md) {
+			margin-bottom: 30px;
+			float: left;
+			width: 100%;
+		}
+		h3 {
+			font-size: 18px;
+			font-weight: 400;
+			color: $color-ltgray;
+		}
+		.zarin-links {
+			padding: 0;
+			margin: 0;
+			li {
+				padding: 0;
+				margin: 0;
+				list-style: none;
+				margin-bottom: 15px;
+				line-height: 24px;
+				a {
+					color: darken($brand-tertiary, 10%);
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+			}
+		}
+	}
+
+	.zarin-copyright {
+		border-top: 1px solid lighten($brand-tertiary, 38%);
+		padding: 40px 0;
+		a {
+			font-weight: 700;
+		}
+		p {
+			small {
+				font-size: 15px;
+			}
+		}
+		.zarin-left {
+			float: left;
+		}
+		.zarin-right {
+			float: right;
+			@media screen and (max-width: $screen-sm) {
+				float: left;
+			}
+		}
+	}
+}
+
+.zarin-social {
+	padding: 0;
+	margin: 0;
+	li {
+		padding: 0;
+		margin: 0;
+		display: inline;
+		a {
+			padding: 4px 7px;
+			font-size: 22px;
+			&:hover {
+				text-decoration: none!important;
+				color: $color-ltgray!important;
+			}
+		}
+	}
+}
+
+// Person
+.zarin-person {
+	text-align: center;
+	@media screen and (max-width: $screen-md) {
+		margin-bottom: 30px;
+		float: left;
+		width: 100%;
+	}
+	figure {
+		margin: 0 auto 30px auto;
+		img {
+			margin: 0 auto;
+			display: block;
+		}
+	}
+	.zarin-name {
+		margin-bottom: 0;
+		color: $brand-secondary;
+	}
+	.zarin-designation {
+		color: $brand-tertiary;
+	}
+	.zarin-bio {
+		text-align: left;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+// Helper Class
+
+.col-xxs-12 {
+	@media screen and (max-width: 480px) {
+		float: none;
+		width: 100%;
+	}
+}
+.btn-cta {
+	padding: 20px 30px!important;
+	width: 200px;
+	font-size: 18px;
+	@media screen and (max-width: $screen-xs) {
+		padding: 10px 30px!important;
+		width: 100%;
+	}
+}
+.row-bottom-padded-lg {
+	padding-bottom: 7em;
+	@media screen and (max-width: $screen-sm ) {
+		padding-bottom: 2em;
+	}
+}
+.row-top-padded-lg {
+	padding-top: 7em;
+	@media screen and (max-width: $screen-sm ) {
+		padding-top: 2em;
+	}
+}
+.row-bottom-padded-md {
+	padding-bottom: 4em;
+	@media screen and (max-width: $screen-sm ) {
+		padding-bottom: 2em;
+	}	
+}
+.row-top-padded-md {
+	padding-top: 4em;
+	@media screen and (max-width: $screen-sm ) {
+		padding-top: 2em;
+	}	
+}
+.row-bottom-padded-sm {
+	padding-bottom: 2em;
+	@media screen and (max-width: $screen-sm ) {
+		padding-bottom: 2em;
+	}	
+}
+.row-top-padded-sm {
+	padding-top: 2em;
+	@media screen and (max-width: $screen-sm ) {
+		padding-top: 2em;
+	}	
+}
+.no-js #loader { 
+	display: none;  
+}
+.js #loader { 
+	display: block; position: absolute; left: 100px; top: 0; border: 10px solid red; 
+}
+.zarin-loader {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background: url(../images/Preloader_2.gif) center no-repeat #fff;
+}
+
+.animate-box {
+	.js & {
+		opacity: 0;
+	}
+}
